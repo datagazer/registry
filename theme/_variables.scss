@@ -1,0 +1,7 @@
+@import '~@angular/material/theming';
+
+$dg-theme--config: mat-light-theme(
+  mat-palette($mat-blue, 500, 100, 900),
+  mat-palette($mat-yellow, A400, A100, A700),
+  mat-palette($mat-red, 500, 100, 900)
+) !default;

@@ -1,0 +1,39 @@
+@import './mixins';
+
+:root {
+  @include dg-layout-grid-core();
+}
+
+[dg-layout-grid] {
+  @include dg-layout-grid();
+
+  @each $media-type, $breakpoint in $dg-layout-grid--breakpoints {
+    $query: map-get($breakpoint, 'query');
+
+    @media #{$query} {
+      $columns: map-get($breakpoint, 'columns');
+
+      @for $column-span from 1 through $columns {
+        & > [dg-layout-grid-cell~="#{$media-type}-#{$column-span}"] {
+          @include dg-layout-grid-cell($column-span);
+        }
+      }
+    }
+  }
+}
+
+[dg-layout-column] {
+  @include dg-layout-column();
+}
+
+[dg-layout-row] {
+  @include dg-layout-row();
+}
+
+[dg-layout-box] {
+  @include dg-layout-box();
+}
+
+[dg-layout-container] {
+  @include dg-layout-container();
+}

@@ -1,0 +1,63 @@
+@import './variables';
+
+$dg-theme--colors: (
+  'default',
+  'lighter',
+  'darker',
+
+  'default-contrast',
+  'lighter-contrast',
+  'darker-contrast'
+) !default;
+
+$dg-theme--background-colors: (
+  'status-bar',
+  'app-bar',
+  'background',
+
+  'card',
+  'dialog'
+) !default;
+
+$dg-theme--foreground-colors: (
+  'text',
+  'secondary-text',
+  'hint-text',
+  'disabled-text',
+  'icon',
+
+  'divider'
+) !default;
+
+@mixin dg-theme-core() {
+  $primary-colors: map-get($dg-theme--config, 'primary');
+  $accent-colors: map-get($dg-theme--config, 'accent');
+  $warn-colors: map-get($dg-theme--config, 'warn');
+
+  $background-colors: map-get($dg-theme--config, 'background');
+  $foreground-colors: map-get($dg-theme--config, 'foreground');
+
+  @each $color in $dg-theme--colors {
+    --dg-theme--primary--#{$color}: #{map-get($primary-colors, $color)};
+    --dg-theme--accent--#{$color}: #{map-get($accent-colors, $color)};
+    --dg-theme--warn--#{$color}: #{map-get($warn-colors, $color)};
+  }
+
+  @each $color in $dg-theme--background-colors {
+    --dg-theme--background--#{$color}: #{map-get($background-colors, $color)};
+  }
+
+  @each $color in $dg-theme--foreground-colors {
+    --dg-theme--foreground--#{$color}: #{map-get($foreground-colors, $color)};
+  }
+}
+
+@mixin dg-theme-background($color, $palette: 'background') {
+  background: {
+    color: var(--dg-theme--#{$palette}--#{$color});
+  }
+}
+
+@mixin dg-theme-foreground($color, $palette: 'foreground') {
+  color: var(--dg-theme--#{$palette}--#{$color});
+}

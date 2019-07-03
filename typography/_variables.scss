@@ -1,0 +1,98 @@
+@import './functions';
+
+$dg-typography--config: dg-typography-config(
+  'Roboto, sans-serif',
+
+  (
+    'display-4': (
+      'font': 'light',
+      'size': (96, 96),
+      'case': inherit,
+      'tracking': -1.5
+    ),
+
+    'display-3': (
+      'font': 'light',
+      'size': (60, 60),
+      'case': inherit,
+      'tracking': -0.5
+    ),
+
+    'display-2': (
+      'font': 'regular',
+      'size': (48, 50),
+      'case': inherit,
+      'tracking': 0
+    ),
+
+    'display-1': (
+      'font': 'regular',
+      'size': (34, 40),
+      'case': inherit,
+      'tracking': 0.25
+    ),
+
+    'headline': (
+      'font': 'regular',
+      'size': (24, 32),
+      'case': inherit,
+      'tracking': 0
+    ),
+
+    'title': (
+      'font': 'medium',
+      'size': (20, 32),
+      'case': inherit,
+      'tracking': 0.25
+    ),
+
+    'subheading-2': (
+      'font': 'regular',
+      'size': (16, 28),
+      'case': inherit,
+      'tracking': 0.15
+    ),
+
+    'subheading-1': (
+      'font': 'medium',
+      'size': (14, 22),
+      'case': inherit,
+      'tracking': 0.1
+    ),
+
+    'body-2': (
+      'font': 'regular',
+      'size': (16, 24),
+      'case': inherit,
+      'tracking': 0.5
+    ),
+
+    'body-1': (
+      'font': 'regular',
+      'size': (14, 20),
+      'case': inherit,
+      'tracking': 0.25
+    ),
+
+    'caption': (
+      'font': 'regular',
+      'size': (12, 20),
+      'case': inherit,
+      'tracking': 0.4
+    ),
+
+    'button': (
+      'font': 'medium',
+      'size': (14, 36),
+      'case': uppercase,
+      'tracking': 1.25
+    ),
+
+    'overline': (
+      'font': 'medium',
+      'size': (12, 32),
+      'case': uppercase,
+      'tracking': 2
+    )
+  )
+) !default;

@@ -1,0 +1,26 @@
+@import './mixins';
+
+$levels: (
+  2,
+  4,
+  6,
+  8,
+  10,
+  12,
+  14,
+  16,
+  18,
+  20,
+  22,
+  24
+);
+
+:root {
+  @include dg-elevation-core($levels);
+}
+
+@each $level in $levels {
+  [dg-elevation="#{$level}"] {
+    @include dg-elevation($level);
+  }
+}

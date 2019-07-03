@@ -1,0 +1,11 @@
+@import './mixins';
+
+:root {
+  @include dg-shape-core();
+}
+
+@each $category, $value in $dg-shape--categories {
+  [dg-shape="#{$category}"] {
+    @include dg-shape($category);
+  }
+}

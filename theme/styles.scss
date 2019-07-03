@@ -1,0 +1,43 @@
+@import './mixins';
+
+:root {
+  @include dg-theme-core();
+}
+
+@each $color in $dg-theme--colors {
+  [dg-theme-background="#{$color}"][palette="primary"] {
+    @include dg-theme-background($color, 'primary');
+  }
+
+  [dg-theme-foreground="#{$color}"][palette="primary"] {
+    @include dg-theme-foreground($color, 'primary');
+  }
+
+  [dg-theme-background="#{$color}"][palette="accent"] {
+    @include dg-theme-background($color, 'accent');
+  }
+
+  [dg-theme-foreground="#{$color}"][palette="accent"] {
+    @include dg-theme-foreground($color, 'accent');
+  }
+
+  [dg-theme-background="#{$color}"][palette="warn"] {
+    @include dg-theme-background($color, 'warn');
+  }
+
+  [dg-theme-foreground="#{$color}"][palette="warn"] {
+    @include dg-theme-foreground($color, 'warn');
+  }
+}
+
+@each $color in $dg-theme--background-colors {
+  [dg-theme-background="#{$color}"] {
+    @include dg-theme-background($color);
+  }
+}
+
+@each $color in $dg-theme--foreground-colors {
+  [dg-theme-foreground="#{$color}"] {
+    @include dg-theme-foreground($color);
+  }
+}

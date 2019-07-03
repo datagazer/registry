@@ -1,0 +1,10 @@
+{
+  "name": "@datagazer/ui",
+  "version": "1.0.0-dev.1",
+
+  "license": "UNLICENSED",
+
+  "peerDependencies": {
+    "@angular/material": "8.x.x"
+  }
+}

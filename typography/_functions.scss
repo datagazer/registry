@@ -1,0 +1,96 @@
+$_font-weight-map: (
+  'thin': 100,
+  'extra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900
+);
+
+$_font-size-conversion-ratio: 0.0625;
+
+@function _get-font-weight($font) {
+  @if not map-has-key($_font-weight-map, $font) {
+    @error 'TODO';
+  }
+
+  @return map-get($_font-weight-map, $font);
+}
+
+@function _get-font-size($size) {
+  @if length($size) != 2 {
+    @error 'TODO';
+  }
+
+  $value: nth($size, 1);
+
+  @if type-of($value) != 'number' or not unitless($value) {
+    @error 'TODO';
+  }
+
+  @return $value * $_font-size-conversion-ratio;
+}
+
+@function _get-line-height($size) {
+  @if length($size) != 2 {
+    @error 'TODO';
+  }
+
+  $value: nth($size, 2);
+
+  @if type-of($value) != 'number' or not unitless($value) {
+    @error 'TODO';
+  }
+
+  @return $value * $_font-size-conversion-ratio;
+}
+
+@function _get-letter-spacing($tracking, $font-size) {
+  @if type-of($tracking) != 'number' or not unitless($tracking) {
+    @error 'TODO';
+  }
+
+  @if type-of($font-size) != 'number' or not unitless($font-size) {
+    @error 'TODO';
+  }
+
+  @return $tracking / ($font-size / $_font-size-conversion-ratio);
+}
+
+@function _get-style($font, $size, $case, $tracking) {
+  $font-weight: _get-font-weight($font);
+  $font-size: _get-font-size($size);
+  $line-height: _get-line-height($size);
+  $text-transform: $case;
+  $letter-spacing: _get-letter-spacing($tracking, $font-size);
+
+  @return (
+    'font-weight': $font-weight,
+    'font-size': $font-size * 1rem,
+    'line-height': $line-height * 1rem,
+    'text-transform': $text-transform,
+    'letter-spacing': $letter-spacing * 1em
+  );
+}
+
+@function dg-typography-config($typeface, $styles) {
+  $base-config: (
+    'font-family': $typeface
+  );
+
+  @each $style, $style-config in $styles {
+    $font: map-get($style-config, 'font');
+    $size: map-get($style-config, 'size');
+    $case: map-get($style-config, 'case');
+    $tracking: map-get($style-config, 'tracking');
+
+    $styles: map-merge($styles, (
+      $style: _get-style($font, $size, $case, $tracking)
+    ));
+  }
+
+  @return map-merge($base-config, $styles);
+}
