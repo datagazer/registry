@@ -11,6 +11,7 @@
     }
   }
 
+  --dg-layout-grid--min-width: #{$dg-layout-grid--min-width};
   --dg-layout-grid--max-width: #{$dg-layout-grid--max-width};
 }
 
@@ -70,7 +71,7 @@
   gap: var(--dg-layout-grid--gutters);
 
   align: {
-    content: stretch;
+    content: center;
     items: center;
   }
 
@@ -84,7 +85,13 @@
   padding: var(--dg-layout-grid--margins);
 }
 
-@mixin dg-layout-container() {
+@mixin dg-layout-min-width-limiter() {
+  min: {
+    width: var(--dg-layout-grid--min-width);
+  }
+}
+
+@mixin dg-layout-max-width-limiter() {
   max: {
     width: var(--dg-layout-grid--max-width);
   }

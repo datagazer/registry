@@ -34,6 +34,10 @@
   @include dg-layout-box();
 }
 
-[dg-layout-container] {
-  @include dg-layout-container();
+[dg-layout-min-width-limiter] {
+  @include dg-layout-min-width-limiter();
+}
+
+[dg-layout-max-width-limiter] {
+  @include dg-layout-max-width-limiter();
 }
