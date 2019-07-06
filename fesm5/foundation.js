@@ -1,4 +1,5 @@
 import { Component, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13,7 +14,7 @@ var SurfaceComponent = /** @class */ (function () {
         Component({
             selector: 'dg-surface',
             template: "<ng-content></ng-content>\n",
-            styles: [":host{display:block;border-radius:var(--dg-shape--medium-radius);background-color:var(--dg-theme--background--card);color:var(--dg-theme--foreground--text)}"]
+            styles: [":host{display:block;border-radius:var(--dg-shape--medium-radius);background-color:var(--dg-theme--background--card);color:var(--dg-theme--foreground--text);overflow:auto}"]
         })
     ], SurfaceComponent);
     return SurfaceComponent;
@@ -74,6 +75,9 @@ var __spread = (this && this.__spread) || function () {
     for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
     return ar;
 };
+var modules = [
+    CommonModule
+];
 var components = [
     SurfaceComponent
 ];
@@ -82,8 +86,9 @@ var FoundationModule = /** @class */ (function () {
     }
     FoundationModule = __decorate$1([
         NgModule({
-            exports: __spread(components),
-            declarations: __spread(components)
+            imports: __spread(modules),
+            declarations: __spread(components),
+            exports: __spread(components)
         })
     ], FoundationModule);
     return FoundationModule;

@@ -11,7 +11,7 @@ SurfaceComponent = __decorate([
     Component({
         selector: 'dg-surface',
         template: "<ng-content></ng-content>\n",
-        styles: [":host{display:block;border-radius:var(--dg-shape--medium-radius);background-color:var(--dg-theme--background--card);color:var(--dg-theme--foreground--text)}"]
+        styles: [":host{display:block;border-radius:var(--dg-shape--medium-radius);background-color:var(--dg-theme--background--card);color:var(--dg-theme--foreground--text);overflow:auto}"]
     })
 ], SurfaceComponent);
 export { SurfaceComponent };
