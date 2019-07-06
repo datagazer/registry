@@ -1,0 +1,24 @@
+{
+  "name": "@datagazer/data-table",
+  "version": "1.0.0-dev.2",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@angular/cdk": "8.x.x",
+    "@angular/common": "8.x.x",
+    "@angular/core": "8.x.x",
+    "@datagazer/ui": "1.0.0-dev.2"
+  },
+  "main": "bundles/data-table.umd.js",
+  "module": "fesm5/data-table.js",
+  "es2015": "fesm2015/data-table.js",
+  "esm5": "esm5/data-table.js",
+  "esm2015": "esm2015/data-table.js",
+  "fesm5": "fesm5/data-table.js",
+  "fesm2015": "fesm2015/data-table.js",
+  "typings": "data-table.d.ts",
+  "metadata": "data-table.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
