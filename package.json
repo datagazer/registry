@@ -1,11 +1,10 @@
 {
   "name": "@datagazer/foundation",
-  "version": "1.0.0-dev.2",
+  "version": "1.0.0-dev.3",
   "license": "UNLICENSED",
   "peerDependencies": {
     "@angular/common": "8.x.x",
-    "@angular/core": "8.x.x",
-    "@datagazer/ui": "1.0.0-dev.2"
+    "@angular/core": "8.x.x"
   },
   "main": "bundles/foundation.umd.js",
   "module": "fesm5/foundation.js",

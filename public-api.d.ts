@@ -1,3 +1,3 @@
-export * from './lib/components/surface/surface.component';
-export * from './lib/functions/common';
+export * from './lib/helpers/common';
+export * from './lib/helpers/date';
 export * from './lib/foundation.module';

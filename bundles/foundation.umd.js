@@ -4,25 +4,6 @@
     (global = global || self, factory((global.datagazer = global.datagazer || {}, global.datagazer.foundation = {}), global.ng.core, global.ng.common));
 }(this, function (exports, core, common) { 'use strict';
 
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var SurfaceComponent = /** @class */ (function () {
-        function SurfaceComponent() {
-        }
-        SurfaceComponent = __decorate([
-            core.Component({
-                selector: 'dg-surface',
-                template: "<ng-content></ng-content>\n",
-                styles: [":host{display:block;border-radius:var(--dg-shape--medium-radius);background-color:var(--dg-theme--background--card);color:var(--dg-theme--foreground--text);overflow:auto}"]
-            })
-        ], SurfaceComponent);
-        return SurfaceComponent;
-    }());
-
     function isVoid(value) {
         return value === undefined || value === null;
     }
@@ -45,19 +26,16 @@
         return null;
     }
     function toDate(value) {
-        if (typeof value === 'string' || typeof value === 'number' || value instanceof Date) {
-            var localDate = new Date(value);
-            return new Date(Date.UTC(localDate.getFullYear(), localDate.getMonth(), localDate.getDate(), localDate.getHours(), localDate.getMinutes(), localDate.getSeconds(), localDate.getMilliseconds()));
+        if (!isVoid(value)) {
+            return new Date(value);
         }
         return null;
     }
 
-    var __decorate$1 = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
+    function toUTC(year, month, day) {
+        return new Date(Date.UTC(year, month, day));
+    }
+
     var __read = (this && this.__read) || function (o, n) {
         var m = typeof Symbol === "function" && o[Symbol.iterator];
         if (!m) return o;
@@ -81,29 +59,24 @@
     var modules = [
         common.CommonModule
     ];
-    var components = [
-        SurfaceComponent
-    ];
     var FoundationModule = /** @class */ (function () {
         function FoundationModule() {
         }
-        FoundationModule = __decorate$1([
-            core.NgModule({
-                imports: __spread(modules),
-                declarations: __spread(components),
-                exports: __spread(components)
-            })
-        ], FoundationModule);
+        FoundationModule.decorators = [
+            { type: core.NgModule, args: [{
+                        exports: __spread(modules)
+                    },] }
+        ];
         return FoundationModule;
     }());
 
     exports.FoundationModule = FoundationModule;
-    exports.SurfaceComponent = SurfaceComponent;
     exports.isVoid = isVoid;
     exports.toBoolean = toBoolean;
     exports.toDate = toDate;
     exports.toNumber = toNumber;
     exports.toString = toString;
+    exports.toUTC = toUTC;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
