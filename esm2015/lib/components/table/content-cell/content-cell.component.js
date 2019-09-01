@@ -1,0 +1,15 @@
+import { CdkCell as CdkContentCell } from '@angular/cdk/table';
+import { Component } from '@angular/core';
+export class ContentCellComponent extends CdkContentCell {
+}
+ContentCellComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'td[dg-content-cell]',
+                template: "<ng-content></ng-content>\n",
+                providers: [
+                    { provide: CdkContentCell, useExisting: ContentCellComponent }
+                ],
+                styles: [":host{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;box-sizing:border-box;min-width:-webkit-min-content;min-width:min-content;height:calc(var(--dg-layout--margins) * 2 + 4px);padding:calc(var(--dg-layout--margins) * .5) var(--dg-layout--margins);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--dg-typography--body-2--font-family);font-size:var(--dg-typography--body-2--font-size);line-height:var(--dg-typography--body-2--line-height);font-weight:var(--dg-typography--body-2--font-weight);text-transform:var(--dg-typography--body-2--text-transform);letter-spacing:var(--dg-typography--body-2--letter-spacing);background-color:var(--dg-theme--surface);color:var(--dg-theme--primary-text)}:host :host-context(tbody:last-of-type>tr:not(:last-child)),:host :host-context(tbody:not(:last-of-type)>tr){border-bottom:var(--dg-divider--on-surface)}:host.cdk-table-sticky[style~=\"left:\"]:not(:last-child){border-right:var(--dg-divider--on-surface)}:host.cdk-table-sticky[style~=\"right:\"]:not(:first-child){border-left:var(--dg-divider--on-surface)}"]
+            }] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udGVudC1jZWxsLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BkYXRhZ2F6ZXIvZGF0YS10YWJsZS8iLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL3RhYmxlL2NvbnRlbnQtY2VsbC9jb250ZW50LWNlbGwuY29tcG9uZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxPQUFPLElBQUksY0FBYyxFQUFFLE1BQU0sb0JBQW9CLENBQUM7QUFDL0QsT0FBTyxFQUFFLFNBQVMsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQVcxQyxNQUFNLE9BQU8sb0JBQXFCLFNBQVEsY0FBYzs7O1lBVHZELFNBQVMsU0FBQztnQkFDVCxRQUFRLEVBQUUscUJBQXFCO2dCQUMvQix1Q0FBNEM7Z0JBRzVDLFNBQVMsRUFBRTtvQkFDVCxFQUFFLE9BQU8sRUFBRSxjQUFjLEVBQUUsV0FBVyxFQUFFLG9CQUFvQixFQUFFO2lCQUMvRDs7YUFDRiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENka0NlbGwgYXMgQ2RrQ29udGVudENlbGwgfSBmcm9tICdAYW5ndWxhci9jZGsvdGFibGUnO1xuaW1wb3J0IHsgQ29tcG9uZW50IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogJ3RkW2RnLWNvbnRlbnQtY2VsbF0nLFxuICB0ZW1wbGF0ZVVybDogJy4vY29udGVudC1jZWxsLmNvbXBvbmVudC5odG1sJyxcbiAgc3R5bGVVcmxzOiBbJy4vY29udGVudC1jZWxsLmNvbXBvbmVudC5zY3NzJ10sXG5cbiAgcHJvdmlkZXJzOiBbXG4gICAgeyBwcm92aWRlOiBDZGtDb250ZW50Q2VsbCwgdXNlRXhpc3Rpbmc6IENvbnRlbnRDZWxsQ29tcG9uZW50IH1cbiAgXVxufSlcbmV4cG9ydCBjbGFzcyBDb250ZW50Q2VsbENvbXBvbmVudCBleHRlbmRzIENka0NvbnRlbnRDZWxsIHt9XG4iXX0=

@@ -1,5 +1,7 @@
 import { CdkTable } from '@angular/cdk/table';
-export declare class TableComponent<T> extends CdkTable<T> {
+import { AfterViewInit } from '@angular/core';
+export declare class TableComponent<T> extends CdkTable<T> implements AfterViewInit {
     readonly gridTemplateColumns: string;
-    updateStickyColumnStyles(): void;
+    updateStickyStyles(): void;
+    ngAfterViewInit(): void;
 }
