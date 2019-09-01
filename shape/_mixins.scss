@@ -1,13 +1,11 @@
 @import './variables';
 
-@mixin dg-shape-core() {
-  @each $category, $value in $dg-shape--categories {
-    --dg-shape--#{$category}: #{$value};
+@mixin dg-shape-core {
+  @each $component-category, $border-radius in $dg-shape--component-categories {
+    --dg-shape--#{$component-category}: #{$border-radius};
   }
 }
 
-@mixin dg-shape($category) {
-  border: {
-    radius: var(--dg-shape--#{$category});
-  }
+@mixin dg-shape($component-category) {
+  border-radius: var(--dg-shape--#{$component-category});
 }

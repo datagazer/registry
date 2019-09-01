@@ -1,17 +1,15 @@
-@import '~@angular/material/theming';
+@import './functions';
 
-@mixin dg-elevation-core($levels) {
-  $umbra-map: _get-umbra-map($mat-elevation-color, $mat-elevation-opacity);
-  $penumbra-map: _get-penumbra-map($mat-elevation-color, $mat-elevation-opacity);
-  $ambient-map: _get-ambient-map($mat-elevation-color, $mat-elevation-opacity);
-
-  @each $level in $levels {
-    --dg-elevation--z#{$level}--box-shadow: #{map-get($umbra-map, $level)},
-                                            #{map-get($penumbra-map, $level)},
-                                            #{map-get($ambient-map, $level)};
+@mixin dg-elevation-core {
+  @for $z-value from 0 through 24 {
+    --dg-elevation--z#{$z-value}: #{box-shadow($z-value)};
   }
 }
 
-@mixin dg-elevation($level) {
-  box-shadow: var(--dg-elevation--z#{$level}--box-shadow);
+@mixin dg-elevation($z-value) {
+  @if $z-value > 0 {
+    border-style: none;
+  }
+
+  box-shadow: var(--dg-elevation--z#{$z-value});
 }

@@ -1,23 +1,21 @@
-@import './variables';
+@import './functions';
 
-@mixin dg-typography-core($styles) {
-  --dg-typography--font-family: #{map-get($dg-typography--config, 'font-family')};
-
-  @each $style in $styles {
-    $style-config: map-get($dg-typography--config, $style);
-
-    --dg-typography--#{$style}--font-size: #{map-get($style-config, 'font-size')};
-    --dg-typography--#{$style}--font-weight: #{map-get($style-config, 'font-weight')};
-    --dg-typography--#{$style}--text-transform: #{map-get($style-config, 'text-transform')};
-    --dg-typography--#{$style}--line-height: #{map-get($style-config, 'line-height')};
-    --dg-typography--#{$style}--letter-spacing: #{map-get($style-config, 'letter-spacing')};
+@mixin dg-typography-core {
+  @each $style, $map in $dg-typography--styles {
+    --dg-typography--#{$style}--font-family: #{font-family($map)};
+    --dg-typography--#{$style}--font-size: #{font-size($map)};
+    --dg-typography--#{$style}--line-height: #{line-height($map)};
+    --dg-typography--#{$style}--font-weight: #{font-weight($map)};
+    --dg-typography--#{$style}--text-transform: #{text-transform($map)};
+    --dg-typography--#{$style}--letter-spacing: #{letter-spacing($map)};
   }
 }
 
 @mixin dg-typography($style) {
+  font-family: var(--dg-typography--#{$style}--font-family);
   font-size: var(--dg-typography--#{$style}--font-size);
+  line-height: var(--dg-typography--#{$style}--line-height);
   font-weight: var(--dg-typography--#{$style}--font-weight);
   text-transform: var(--dg-typography--#{$style}--text-transform);
-  line-height: var(--dg-typography--#{$style}--line-height);
   letter-spacing: var(--dg-typography--#{$style}--letter-spacing);
 }

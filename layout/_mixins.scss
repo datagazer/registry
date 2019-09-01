@@ -1,0 +1,55 @@
+@import './functions';
+
+@mixin dg-layout-core {
+  --dg-layout--max-width: #{$dg-layout--max-width};
+
+  @each $breakpoint, $map in $dg-layout--breakpoints {
+    $query: query($map);
+
+    @media #{$query} {
+      --dg-layout--columns: #{columns($map)};
+      --dg-layout--gutters: #{gutters($map)};
+      --dg-layout--margins: #{margins($map)};
+    }
+  }
+}
+
+@mixin dg-layout-container() {
+  max-width: var(--dg-layout--max-width);
+  padding: var(--dg-layout--margins);
+  margin: 0 auto;
+}
+
+@mixin dg-layout-grid() {
+  display: grid;
+
+  grid-template-columns: repeat(var(--dg-layout--columns), 1fr);
+  grid-template-rows: auto;
+  grid-gap: var(--dg-layout--gutters);
+}
+
+@mixin dg-layout-grid-cell($column-span) {
+  grid-column-end: span $column-span;
+}
+
+@mixin dg-layout-column() {
+  display: grid;
+
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  grid-auto-rows: max-content;
+  grid-gap: var(--dg-layout--gutters);
+
+  align-items: center;
+}
+
+@mixin dg-layout-row() {
+  display: grid;
+
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-auto-rows: auto;
+  grid-gap: var(--dg-layout--gutters);
+
+  align-items: center;
+}

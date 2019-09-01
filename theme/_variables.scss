@@ -1,7 +1,27 @@
-@import '~@angular/material/theming';
+$dg-theme--primary: null !default;
+$dg-theme--primary-light: $dg-theme--primary !default;
+$dg-theme--primary-dark: $dg-theme--primary !default;
 
-$dg-theme--config: mat-light-theme(
-  mat-palette($mat-blue, 500, 100, 900),
-  mat-palette($mat-yellow, A400, A100, A700),
-  mat-palette($mat-red, 500, 100, 900)
+$dg-theme--secondary: null !default;
+$dg-theme--secondary-light: $dg-theme--secondary !default;
+$dg-theme--secondary-dark: $dg-theme--secondary !default;
+
+$dg-theme--background: white !default;
+$dg-theme--surface: white !default;
+$dg-theme--error: #b00020 !default;
+
+$dg-theme--emphasis-map: (
+  'high': 0.87,
+  'medium': 0.60,
+  'disabled': 0.38
+) !default;
+
+$dg-theme--overlay-map: (
+  'disabled': 0.38,
+  'hovered': 0.04,
+  'focused': 0.12,
+  'selected': 0.08,
+  'activated': 0.12,
+  'pressed': 0.16,
+  'dragged': 0.08
 ) !default;

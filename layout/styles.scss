@@ -1,0 +1,36 @@
+@import './mixins';
+
+// Global Properties
+:root {
+  @include dg-layout-core;
+}
+
+[dg-layout-container] {
+  @include dg-layout-container();
+}
+
+[dg-layout-grid] {
+  @include dg-layout-grid();
+
+  @each $breakpoint, $map in $dg-layout--breakpoints {
+    $query: query($map);
+
+    @media #{$query} {
+      $columns: columns($map);
+
+      @for $column-span from 1 through $columns {
+        & > [dg-layout-grid-cell~="#{$breakpoint}-#{$column-span}"] {
+          @include dg-layout-grid-cell($column-span);
+        }
+      }
+    }
+  }
+}
+
+[dg-layout-column] {
+  @include dg-layout-column();
+}
+
+[dg-layout-row] {
+  @include dg-layout-row();
+}

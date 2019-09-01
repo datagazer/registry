@@ -1,0 +1,67 @@
+@import './variables', './functions';
+
+@function material-theme() {
+  $is-dark: tone($dg-theme--background) == 'dark';
+
+  @return (
+    'primary': (
+      'default': $dg-theme--primary,
+      'lighter': $dg-theme--primary-light,
+      'darker': $dg-theme--primary-dark,
+
+      'default-contrast': foreground-color($dg-theme--primary),
+      'lighter-contrast': foreground-color($dg-theme--primary-light),
+      'darker-contrast': foreground-color($dg-theme--primary-dark),
+
+      'text': $dg-theme--primary
+    ),
+
+    'accent': (
+      'default': $dg-theme--secondary,
+      'lighter': $dg-theme--secondary-light,
+      'darker': $dg-theme--secondary-dark,
+
+      'default-contrast': foreground-color($dg-theme--secondary),
+      'lighter-contrast': foreground-color($dg-theme--secondary-light),
+      'darker-contrast': foreground-color($dg-theme--secondary-dark),
+
+      'text': $dg-theme--secondary
+    ),
+
+    'warn': (
+      'default': $dg-theme--error,
+      'lighter': $dg-theme--error,
+      'darker': $dg-theme--error,
+
+      'default-contrast': foreground-color($dg-theme--error),
+      'lighter-contrast': foreground-color($dg-theme--error),
+      'darker-contrast': foreground-color($dg-theme--error),
+
+      'text': $dg-theme--error
+    ),
+
+    'background': map-merge(
+      if($is-dark, $mat-dark-theme-background, $mat-light-theme-background),
+
+      (
+        'app-bar': $dg-theme--primary,
+        'background': $dg-theme--background,
+        'card': $dg-theme--surface,
+        'dialog': $dg-theme--surface
+      )
+    ),
+
+    'foreground': map-merge(
+      if($is-dark, $mat-dark-theme-foreground, $mat-light-theme-foreground),
+
+      (
+        'text': rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'high')),
+        'secondary-text': rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'medium')),
+        'hint-text': rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'medium')),
+        'disabled-text': rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'disabled'))
+      )
+    ),
+
+    'is-dark': $is-dark
+  );
+}

@@ -1,0 +1,23 @@
+@import './functions', '../theme/functions';
+
+@mixin dg-divider-core {
+  --dg-divider--on-primary: #{border(foreground-color($dg-theme--primary))};
+  --dg-divider--on-primary-light: #{border(foreground-color($dg-theme--primary-light))};
+  --dg-divider--on-primary-dark: #{border(foreground-color($dg-theme--primary-dark))};
+
+  --dg-divider--on-secondary: #{border(foreground-color($dg-theme--secondary))};
+  --dg-divider--on-secondary-light: #{border(foreground-color($dg-theme--secondary-light))};
+  --dg-divider--on-secondary-dark: #{border(foreground-color($dg-theme--secondary-dark))};
+
+  --dg-divider--on-background: #{border(foreground-color($dg-theme--background))};
+  --dg-divider--on-surface: #{border(foreground-color($dg-theme--surface))};
+  --dg-divider--on-error: #{border(foreground-color($dg-theme--error))};
+}
+
+@mixin dg-divider($color, $side: null) {
+  @if $side {
+    border-#{$side}: var(--dg-divider--#{$color});
+  } @else {
+    border: var(--dg-divider--#{$color});
+  }
+}

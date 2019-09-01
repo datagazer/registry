@@ -1,0 +1,35 @@
+@import './constants', './variables';
+
+@function luminance($color) {
+  $red-channel: nth($dg-theme--linear-channel-values, red($color) + 1);
+  $green-channel: nth($dg-theme--linear-channel-values, green($color) + 1);
+  $blue-channel: nth($dg-theme--linear-channel-values, blue($color) + 1);
+
+  @return $red-channel * 0.2126 + $green-channel * 0.7152 + $blue-channel * 0.0722;
+}
+
+@function contrast($color-a, $color-b) {
+  $luminance-a: luminance($color-a) + 0.05;
+  $luminance-b: luminance($color-b) + 0.05;
+
+  @return max($luminance-a, $luminance-b) / min($luminance-a, $luminance-b);
+}
+
+@function tone($color) {
+  $contrast-to-black: contrast($color, black);
+  $contrast-to-white: contrast($color, white);
+
+  @if $contrast-to-black > $contrast-to-white and $contrast-to-white < 3.1 {
+    @return 'light';
+  }
+
+  @return 'dark';
+}
+
+@function foreground-color($background-color) {
+  @if tone($background-color) == 'light' {
+    @return black;
+  }
+
+  @return white;
+}

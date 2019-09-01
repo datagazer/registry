@@ -1,0 +1,17 @@
+@import './variables';
+
+@function query($map) {
+  @return map-get($map, 'query');
+}
+
+@function columns($map) {
+  @return map-get($map, 'columns');
+}
+
+@function gutters($map) {
+  @return map-get($map, 'gutters');
+}
+
+@function margins($map) {
+  @return map-get($map, 'margins');
+}

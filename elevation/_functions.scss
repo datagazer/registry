@@ -1,0 +1,7 @@
+@import './constants', './variables';
+
+@function box-shadow($z-value) {
+  @return #{map-get($dg-elevation--umbra-map, $z-value) rgba($dg-elevation--color, $dg-elevation--umbra-opacity)},
+          #{map-get($dg-elevation--penumbra-map, $z-value) rgba($dg-elevation--color, $dg-elevation--penumbra-opacity)},
+          #{map-get($dg-elevation--ambient-map, $z-value) rgba($dg-elevation--color, $dg-elevation--ambient-opacity)};
+}

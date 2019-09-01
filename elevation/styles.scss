@@ -1,26 +1,12 @@
 @import './mixins';
 
-$levels: (
-  2,
-  4,
-  6,
-  8,
-  10,
-  12,
-  14,
-  16,
-  18,
-  20,
-  22,
-  24
-);
-
+// Global Properties
 :root {
-  @include dg-elevation-core($levels);
+  @include dg-elevation-core;
 }
 
-@each $level in $levels {
-  [dg-elevation="#{$level}"] {
-    @include dg-elevation($level);
+@for $z-value from 0 through 24 {
+  [dg-elevation="#{$z-value}"] {
+    @include dg-elevation($z-value);
   }
 }

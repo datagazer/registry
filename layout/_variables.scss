@@ -1,0 +1,27 @@
+$dg-layout--max-width: initial !default;
+
+$dg-layout--breakpoints: (
+  'phone': (
+    'query': '(max-width: 599px)',
+
+    'columns': 4,
+    'gutters': 16px,
+    'margins': 16px
+  ),
+
+  'tablet': (
+    'query': '(min-width: 600px) and (max-width: 839px)',
+
+    'columns': 8,
+    'gutters': 24px,
+    'margins': 24px
+  ),
+
+  'desktop': (
+    'query': '(min-width: 840px)',
+
+    'columns': 12,
+    'gutters': 24px,
+    'margins': 24px
+  )
+) !default;

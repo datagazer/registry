@@ -1,63 +1,43 @@
-@import './variables';
+@import './functions';
 
-$dg-theme--colors: (
-  'default',
-  'lighter',
-  'darker',
+@mixin dg-theme-core {
+  --dg-theme--primary: #{$dg-theme--primary};
+  --dg-theme--primary-light: #{$dg-theme--primary-light};
+  --dg-theme--primary-dark: #{$dg-theme--primary-dark};
 
-  'default-contrast',
-  'lighter-contrast',
-  'darker-contrast'
-) !default;
+  --dg-theme--secondary: #{$dg-theme--secondary};
+  --dg-theme--secondary-light: #{$dg-theme--secondary-light};
+  --dg-theme--secondary-dark: #{$dg-theme--secondary-dark};
 
-$dg-theme--background-colors: (
-  'status-bar',
-  'app-bar',
-  'background',
+  --dg-theme--background: #{$dg-theme--background};
+  --dg-theme--surface: #{$dg-theme--surface};
+  --dg-theme--error: #{$dg-theme--error};
 
-  'card',
-  'dialog'
-) !default;
+  --dg-theme--on-primary: #{foreground-color($dg-theme--primary)};
+  --dg-theme--on-primary-light: #{foreground-color($dg-theme--primary-light)};
+  --dg-theme--on-primary-dark: #{foreground-color($dg-theme--primary-dark)};
 
-$dg-theme--foreground-colors: (
-  'text',
-  'secondary-text',
-  'hint-text',
-  'disabled-text',
-  'icon',
+  --dg-theme--on-secondary: #{foreground-color($dg-theme--secondary)};
+  --dg-theme--on-secondary-light: #{foreground-color($dg-theme--secondary-light)};
+  --dg-theme--on-secondary-dark: #{foreground-color($dg-theme--secondary-dark)};
 
-  'divider'
-) !default;
+  --dg-theme--on-background: #{foreground-color($dg-theme--background)};
+  --dg-theme--on-surface: #{foreground-color($dg-theme--surface)};
+  --dg-theme--on-error: #{foreground-color($dg-theme--error)};
 
-@mixin dg-theme-core() {
-  $primary-colors: map-get($dg-theme--config, 'primary');
-  $accent-colors: map-get($dg-theme--config, 'accent');
-  $warn-colors: map-get($dg-theme--config, 'warn');
+  --dg-theme--primary-text: #{rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'high'))};
+  --dg-theme--secondary-text: #{rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'medium'))};
+  --dg-theme--disabled-text: #{rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'disabled'))};
 
-  $background-colors: map-get($dg-theme--config, 'background');
-  $foreground-colors: map-get($dg-theme--config, 'foreground');
-
-  @each $color in $dg-theme--colors {
-    --dg-theme--primary--#{$color}: #{map-get($primary-colors, $color)};
-    --dg-theme--accent--#{$color}: #{map-get($accent-colors, $color)};
-    --dg-theme--warn--#{$color}: #{map-get($warn-colors, $color)};
-  }
-
-  @each $color in $dg-theme--background-colors {
-    --dg-theme--background--#{$color}: #{map-get($background-colors, $color)};
-  }
-
-  @each $color in $dg-theme--foreground-colors {
-    --dg-theme--foreground--#{$color}: #{map-get($foreground-colors, $color)};
-  }
+  --dg-theme--active-icon: #{rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'high'))};
+  --dg-theme--inactive-icon: #{rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'medium'))};
+  --dg-theme--disabled-icon: #{rgba(foreground-color($dg-theme--surface), map-get($dg-theme--emphasis-map, 'disabled'))};
 }
 
-@mixin dg-theme-background($color, $palette: 'background') {
-  background: {
-    color: var(--dg-theme--#{$palette}--#{$color});
-  }
+@mixin dg-theme-background($color) {
+  background-color: var(--dg-theme--#{$color});
 }
 
-@mixin dg-theme-foreground($color, $palette: 'foreground') {
-  color: var(--dg-theme--#{$palette}--#{$color});
+@mixin dg-theme-foreground($color) {
+  color: var(--dg-theme--#{$color});
 }
