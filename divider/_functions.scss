@@ -1,5 +1,0 @@
-@import './variables';
-
-@function border($foreground-color) {
-  @return $dg-divider--size $dg-divider--style rgba($foreground-color, $dg-divider--opacity * if($foreground-color == white, 3, 1));
-}

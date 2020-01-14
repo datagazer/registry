@@ -2,10 +2,9 @@
 
 // Global Properties
 :root {
-  @include dg-typography-core;
+  @include dg-typography-core();
 }
 
-// Global Styles
 :root {
   @include dg-typography('body-1');
 }

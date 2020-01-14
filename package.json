@@ -1,6 +1,17 @@
 {
   "name": "@datagazer/ui",
-  "version": "1.0.0-dev.3",
+  "version": "1.0.0-dev.4",
 
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+
+  "author": {
+    "name": "Dmytro Nemoga",
+    "email": "dnemoga@datagazer.io"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/datagazer/sdk.git",
+    "directory": "ui"
+  }
 }

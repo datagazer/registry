@@ -1,6 +1,6 @@
 @import './functions';
 
-@mixin dg-theme-core {
+@mixin dg-theme-core() {
   --dg-theme--primary: #{$dg-theme--primary};
   --dg-theme--primary-light: #{$dg-theme--primary-light};
   --dg-theme--primary-dark: #{$dg-theme--primary-dark};

@@ -2,16 +2,15 @@
 
 // Global Properties
 :root {
-  @include dg-theme-core;
+  @include dg-theme-core();
 }
 
-// Global Styles
 :root {
   @include dg-theme-background('background');
   @include dg-theme-foreground('on-background');
+}
 
-  ::selection {
-    @include dg-theme-background('secondary');
-    @include dg-theme-foreground('on-secondary');
-  }
+::selection {
+  @include dg-theme-background('secondary');
+  @include dg-theme-foreground('on-secondary');
 }

@@ -1,6 +1,6 @@
 @import './functions';
 
-@mixin dg-elevation-core {
+@mixin dg-elevation-core() {
   @for $z-value from 0 through 24 {
     --dg-elevation--z#{$z-value}: #{box-shadow($z-value)};
   }

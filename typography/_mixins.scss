@@ -1,6 +1,6 @@
 @import './functions';
 
-@mixin dg-typography-core {
+@mixin dg-typography-core() {
   @each $style, $map in $dg-typography--styles {
     --dg-typography--#{$style}--font-family: #{font-family($map)};
     --dg-typography--#{$style}--font-size: #{font-size($map)};

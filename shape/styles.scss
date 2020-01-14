@@ -2,5 +2,5 @@
 
 // Global Properties
 :root {
-  @include dg-shape-core;
+  @include dg-shape-core();
 }

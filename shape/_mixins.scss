@@ -1,6 +1,6 @@
 @import './variables';
 
-@mixin dg-shape-core {
+@mixin dg-shape-core() {
   @each $component-category, $border-radius in $dg-shape--component-categories {
     --dg-shape--#{$component-category}: #{$border-radius};
   }

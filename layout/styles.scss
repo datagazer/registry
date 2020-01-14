@@ -2,11 +2,11 @@
 
 // Global Properties
 :root {
-  @include dg-layout-core;
+  @include dg-layout-core();
 }
 
-[dg-layout-container] {
-  @include dg-layout-container();
+[dg-layout] {
+  @include dg-layout();
 }
 
 [dg-layout-grid] {
@@ -27,10 +27,10 @@
   }
 }
 
-[dg-layout-column] {
-  @include dg-layout-column();
-}
-
 [dg-layout-row] {
   @include dg-layout-row();
+}
+
+[dg-layout-column] {
+  @include dg-layout-column();
 }
